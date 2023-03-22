@@ -1,10 +1,4 @@
-const initialState = [
-    {id: '1', title: 'First note 1', content: 'Hello world!'},
-    {id: '2', title: 'First note 2', content: '#world'},
-    {id: '3', title: 'First note 3', content: 'Hello wor#ld'},
-    {id: '4', title: 'First note 4', content: 'Hello#123123'},
-    {id: '5', title: 'First note 5', content: 'Hello 123123'},
-]
+const initialState = [] as Array<NoteType>
 
 export const notesReducer = (state: InitialStateNotesType = initialState, action: NotesActionsType) => {
     switch (action.type) {
@@ -19,7 +13,7 @@ export const notesReducer = (state: InitialStateNotesType = initialState, action
         case "NOTES/DELETE-NOTE":
             return state.filter(el => el.id !== action.payload.id)
         case "NOTES/SET-NOTE":
-            return state.filter(el => el.id !== action.payload.note.id)
+            return state.filter(el => el.id == action.payload.note.id)
         default:
             return state
     }
@@ -51,3 +45,9 @@ export type NotesActionsType =
     | ReturnType<typeof changeNoteContent>
     | ReturnType<typeof deleteNote>
     | ReturnType<typeof setNote>
+
+export type NoteType = {
+    id: string
+    title: string
+    content: string
+}

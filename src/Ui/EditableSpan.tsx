@@ -12,12 +12,13 @@ export const EditableSpan: FC<EditableSpanPropsType> = React.memo(({value, onCha
     const dispatch = useDispatch()
 
     const [editMode, setEditMode] = useState(false)
-    const [title, setTitle] = useState(value)
+    const [title, setTitle] = useState('')
 
     const activateEditMode = () => {
         setEditMode(true)
         setTitle(value);
     }
+
     const activateViewMode = () => {
         setEditMode(false)
         onChange(title)
@@ -25,6 +26,7 @@ export const EditableSpan: FC<EditableSpanPropsType> = React.memo(({value, onCha
         for (let i = 0; i < val.length; i++) {
             if (val[i].charAt(0) === "#") {
                 setTitle(val[i])
+                console.log(val[i])
                 dispatch(setTag(val[i]))
             }
         }
@@ -36,5 +38,5 @@ export const EditableSpan: FC<EditableSpanPropsType> = React.memo(({value, onCha
 
     return editMode
         ? <input value={title} onChange={handleChange} autoFocus onBlur={activateViewMode}/>
-        : <span onDoubleClick={activateEditMode}>{value}</span>
+        : <span onClick={activateEditMode}>{value}</span>
 });

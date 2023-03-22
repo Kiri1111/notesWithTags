@@ -5,7 +5,6 @@ import {AddNoteForm} from "./addNote";
 import {useDispatch} from "react-redux";
 import {setNote, setNoteTitle} from "../Bll/reducers/notesReducer";
 import {v1} from "uuid";
-import {setTag} from "../Bll/reducers/tagsReducer";
 
 export const NotesMain = () => {
     const notes = useAppSelector(state => state.notes)
@@ -13,26 +12,17 @@ export const NotesMain = () => {
     const dispatch = useDispatch()
 
     const [activeTag, setActiveTag] = useState('')
-    const [searchValue, setSearchValue] = useState('')
 
-    const searchParam = () => {
-        if (notes.find(el => {
-            el.content.includes(searchValue)
-        })) {
-        }
-    }
+    // useEffect(() => {
+    //     const tags = notes.filter(n => n.content.includes('#'))
+    //     tags.forEach(t => {
+    //         console.log(t.content)
+    //         dispatch(setTag(t.content))
+    //     })
+    // }, [notes])
 
     useEffect(() => {
-        const tags = notes.filter((n, index) => n.content.includes('#'))
-        tags.forEach((t) => {
-            dispatch(setTag(t.content))
-        })
-    }, [notes])
-
-    const fakeActiveTag = '#12'
-    useEffect(() => {
-        const newArray = notes.filter((n, index) => n.content.includes(activeTag))
-        console.log(newArray[0])
+        const newArray = notes.filter(n => n.content.includes(activeTag))
         dispatch(setNote(newArray[0]))
     }, [activeTag])
 
@@ -42,10 +32,6 @@ export const NotesMain = () => {
 
     return (
         <div>
-            <input onChange={(e) => {
-                setSearchValue(e.currentTarget.value)
-            }}/>
-            <button onClick={searchParam}>search</button>
 
             <AddNoteForm addItemCallBack={addNoteHandler}/>
             {notes.map(el => <Note key={el.id} notes={el}/>)}
