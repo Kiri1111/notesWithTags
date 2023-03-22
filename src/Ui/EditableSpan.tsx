@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, useState} from 'react';
 import {useDispatch} from "react-redux";
-import {setTag} from "../Bll/reducer/tagsReducer";
+import {setTag} from "../Bll/reducers/tagsReducer";
 
 type EditableSpanPropsType = {
     value: string

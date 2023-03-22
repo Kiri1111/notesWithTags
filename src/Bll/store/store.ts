@@ -1,7 +1,7 @@
 import {combineReducers, legacy_createStore} from "redux";
-import {InitialStateNotesType, notesReducer} from "../reducer/notesReducer";
+import {InitialStateNotesType, notesReducer} from "../reducers/notesReducer";
 import {TypedUseSelectorHook, useSelector} from "react-redux";
-import {InitialStateTagsType, tagsReducer} from "../reducer/tagsReducer";
+import {InitialStateTagsType, tagsReducer} from "../reducers/tagsReducer";
 
 const rootReducer = combineReducers({
     notes: notesReducer,

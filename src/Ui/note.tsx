@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import style from './note.module.css'
 import {EditableSpan} from "./EditableSpan";
 import {useDispatch} from "react-redux";
-import {changeNoteContent, deleteNote} from "../Bll/reducer/notesReducer";
+import {changeNoteContent, deleteNote} from "../Bll/reducers/notesReducer";
 
 type NoteType = {
     id: string
