@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useAppSelector} from "../Bll/store/store";
-import Note from "./note";
+import {Note} from "./note";
 import {AddNoteForm} from "./addNote";
 import {useDispatch} from "react-redux";
 import {setNote, setNoteTitle} from "../Bll/reducers/notesReducer";
@@ -12,14 +12,6 @@ export const NotesMain = () => {
     const dispatch = useDispatch()
 
     const [activeTag, setActiveTag] = useState('')
-
-    // useEffect(() => {
-    //     const tags = notes.filter(n => n.content.includes('#'))
-    //     tags.forEach(t => {
-    //         console.log(t.content)
-    //         dispatch(setTag(t.content))
-    //     })
-    // }, [notes])
 
     useEffect(() => {
         const newArray = notes.filter(n => n.content.includes(activeTag))

@@ -8,7 +8,7 @@ import {changeNoteContent, deleteNote, NoteType} from "../Bll/reducers/notesRedu
 type NotePropsType = {
     notes: NoteType
 }
-const Note: FC<NotePropsType> = ({notes}) => {
+export const Note: FC<NotePropsType> = ({notes}) => {
 
     const dispatch = useDispatch()
 
@@ -25,4 +25,3 @@ const Note: FC<NotePropsType> = ({notes}) => {
     )
 }
 
-export default Note;
