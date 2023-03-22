@@ -1,4 +1,4 @@
-const initialState = ['test tag']
+const initialState = [] as string[]
 
 export const tagsReducer = (state: InitialStateTagsType = initialState, action: TagsActionsType) => {
     switch (action.type) {
