@@ -1,0 +1,7 @@
+@import './styles/variables';
+
+.appBlock {
+  background-color: $backGroundColor;
+  height: 100vh;
+  color: $textColor;
+}

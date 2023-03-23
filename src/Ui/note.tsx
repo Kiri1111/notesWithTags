@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
-import style from './note.module.css'
-import {EditableSpan} from "./EditableSpan";
+import s from './note.module.scss'
+import {EditableDiv} from "./EditableDiv";
 import {useDispatch} from "react-redux";
 import {changeNoteContent, deleteNote, NoteType} from "../Bll/reducers/notesReducer";
 
@@ -17,10 +17,10 @@ export const Note: FC<NotePropsType> = ({notes}) => {
     const deleteNoteHandler = () => dispatch(deleteNote(notes.id))
 
     return (
-        <div className={style.noteBlock}>
-            <span onClick={deleteNoteHandler}>del</span>
-            <h3 className={style.title}>{notes.title}</h3>
-            <EditableSpan value={notes.content} onChange={onChangeContentHandler}/>
+        <div className={s.noteBlock}>
+            <span className={s.delButton} onClick={deleteNoteHandler}>del</span>
+            <div className={s.title}>{notes.title}</div>
+            <EditableDiv value={notes.content} onChange={onChangeContentHandler}/>
         </div>
     )
 }

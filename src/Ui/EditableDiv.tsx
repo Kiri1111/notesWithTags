@@ -1,13 +1,14 @@
 import React, {ChangeEvent, FC, useState} from 'react';
 import {useDispatch} from "react-redux";
 import {setTag} from "../Bll/reducers/tagsReducer";
+import s from './editableDiv.module.scss'
 
 type EditableSpanPropsType = {
     value: string
     onChange: (newValue: string) => void
 }
 
-export const EditableSpan: FC<EditableSpanPropsType> = React.memo(({value, onChange}) => {
+export const EditableDiv: FC<EditableSpanPropsType> = React.memo(({value, onChange}) => {
 
     const dispatch = useDispatch()
 
@@ -26,7 +27,6 @@ export const EditableSpan: FC<EditableSpanPropsType> = React.memo(({value, onCha
         for (let i = 0; i < val.length; i++) {
             if (val[i].charAt(0) === "#") {
                 setTitle(val[i])
-                console.log(val[i])
                 dispatch(setTag(val[i]))
             }
         }
@@ -38,5 +38,5 @@ export const EditableSpan: FC<EditableSpanPropsType> = React.memo(({value, onCha
 
     return editMode
         ? <input value={title} onChange={handleChange} autoFocus onBlur={activateViewMode}/>
-        : <span onClick={activateEditMode}>{value}</span>
+        : <div className={s.content} onClick={activateEditMode}>{value}</div>
 });
