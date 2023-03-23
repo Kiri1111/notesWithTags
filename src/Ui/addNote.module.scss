@@ -1,0 +1,28 @@
+@import './src/styles/variables';
+
+.addBlock {
+  padding: 30px;
+
+  .input {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: #E5BC67BF;
+    border: none;
+    font-size: 20px;
+
+  }
+
+  .button {
+    background-color: $second;
+    margin: 10px;
+    padding: 7px;
+    border-radius: 3px;
+
+    &:hover {
+
+      background-color: #cc1818;
+    }
+  }
+}

@@ -7,17 +7,17 @@
   padding: 10px;
   background: #9A8B8BFF;
   background: linear-gradient(to left bottom, transparent 50%, rgba(0, 0, 0, .3) 0) no-repeat 101% 0 / 30px 30px,
-  linear-gradient(-135deg, transparent 20px, rgba(231, 190, 104, 0.75) 0);
+  linear-gradient(-135deg, transparent 20px, rgba(229, 188, 103, 0.75) 0);
 
   .delButton {
     background-color: $second;
-    margin: 10px;
-    padding: 5px;
+    margin: -6px;
+    padding: 7px;
     border-radius: 3px;
 
     &:hover {
 
-      background-color: #cc1818;;
+      background-color: #cc1818;
 
     }
   }

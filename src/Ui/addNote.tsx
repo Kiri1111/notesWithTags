@@ -1,5 +1,5 @@
 import React, {ChangeEvent, FC, KeyboardEvent, useState} from 'react';
-
+import s from './addNote.module.scss'
 
 type AddItemFormPropsType = {
     addItemCallBack: (title: string) => void
@@ -32,17 +32,17 @@ export const AddNoteForm: FC<AddItemFormPropsType> = React.memo(({addItemCallBac
         }
     }
 
-    return <div>
+    return <div className={s.addBlock}>
         <input
+            className={s.input}
             value={title}
             onChange={onChangeHandler}
             onKeyPress={onKeyPressHandler}
             placeholder={'Enter title'}
         />
 
-
-        <span style={{border: '2px solid black'}} onClick={addItem}>
-             +
+        <span className={s.button} onClick={addItem}>
+             add
         </span>
         <div>
             {error}
