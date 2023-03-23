@@ -7,11 +7,10 @@
     flex-wrap: wrap;
 
     .tags {
-      height: 20px;
+      position: relative;
       font-size: 25px;
-      position: absolute;
-      top: 40px;
-      left: 400px;
+      top: -30px;
+      left: 35px;
 
       &:hover {
         color: #5858ef;

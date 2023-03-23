@@ -27,10 +27,11 @@ export const NotesMain = () => {
         <div className={s.notesBlock}>
             <AddNoteForm addItemCallBack={addNoteHandler}/>
             <div className={s.items}>
-                {notes.map(el => <Note key={el.id} notes={el}/>)}
                 {tags.map((el, index) => <span className={s.tags} onClick={() => {
                     setActiveTag(el)
                 }} key={index}>{el}</span>)}
+                {notes.map(el => <Note key={el.id} notes={el}/>)}
+
             </div>
         </div>
     );
